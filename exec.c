@@ -16,6 +16,5 @@ int main(int argc, char **argv)
 	{
 		perror("Error:");
 	}
-	printf("After execve\n");
-	return (0);
+	return (write(STDOUT_FILENO, "After execve\n", 13));
 }
