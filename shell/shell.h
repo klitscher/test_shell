@@ -13,5 +13,6 @@ struct Globals
 
 char *_strcpy(char *dest, char *src, size_t n);
 char **token(char *line, size_t bytes);
+void find_path(char **envp);
 
 #endif /* _SHELL_H_ */

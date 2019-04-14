@@ -18,6 +18,8 @@ int main(int ac, char **argv, char **env)
 		write(STDERR_FILENO, "$ ", 2);
 		getline(&globals.line, &globals.line_len, stdin);
 		str_tok = token(globals.line, globals.line_len);
+		find_path(env);
+		printf("%s\n", globals.path);
 		my_pid = fork();
 		if (my_pid == 0)
 		{
@@ -30,6 +32,7 @@ int main(int ac, char **argv, char **env)
 		{
 			wait(&status);
 		}
+		free(globals.path);
 		free(globals.cpy);
 		free(str_tok);
 	}
